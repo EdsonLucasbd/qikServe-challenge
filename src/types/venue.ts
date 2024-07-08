@@ -1,4 +1,4 @@
-interface WebSettings {
+export interface WebSettings {
   id: number;
   venueId: number;
   bannerImage: string;
