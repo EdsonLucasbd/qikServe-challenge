@@ -27,9 +27,9 @@ export const SearchInput = () => {
   }
 
   return (
-    <div className='relative p-4 flex items-center justify-center w-full h-[72px]'>
+    <div className='relative p-4 lg:p-0 lg:my-[6px] flex items-center justify-center w-full h-[72px] lg:h-11'>
       <span
-        className='absolute left-4 flex items-center justify-center w-[41.88px] h-10'
+        className='absolute left-4 lg:left-0 flex items-center justify-center w-[41.88px] h-10'
         onClick={handleSearch}
       >
         <MagnifyingGlass size={20} className='text-[#8A94A4]' />
@@ -37,7 +37,7 @@ export const SearchInput = () => {
       <input
         ref={inputRef}
         className='w-full h-full rounded-[7.29px] border-[0.91px] border-[#8A94A4]
-          pl-[41.88px]'
+          pl-[41.88px] lg:placeholder:text-[#2C2C2C] lg:placeholder:text-base'
         type="text"
         placeholder='Search menu items'
         onKeyUp={handleSearchEnter}

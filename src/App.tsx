@@ -35,11 +35,13 @@ function App() {
   dispatch(setWebSettings(data?.webSettings));
 
   return (
-    <Layout headerColor={data?.webSettings.navBackgroundColour}>
+    <Layout headerColor={data?.webSettings.navBackgroundColour} className='h-full'>
       <div className='w-full h-[158px] lg:h-[150px] bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${data?.webSettings.bannerImage})` }}></div>
-      <SearchInput />
-      <div className="flex w-full px-4">
-        <Sections />
+      <div className='bg-white lg:bg-[#EEEEEE] lg:pt-[1px] lg:mt-[5px] lg:px-[208px]'>
+        <SearchInput />
+        <div className="flex w-full px-4 lg:bg-[#F8F9FA] lg:mt-0 lg:px-10 lg:pb-[244px] lg:mb-[35px]">
+          <Sections />
+        </div>
       </div>
     </Layout>
   )
