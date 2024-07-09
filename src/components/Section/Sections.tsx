@@ -63,6 +63,6 @@ export const Sections = () => {
 
         </Accordion>
       </div>
-    </section >
+    </section>
   )
 }
