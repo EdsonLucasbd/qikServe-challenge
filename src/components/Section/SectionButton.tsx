@@ -1,24 +1,31 @@
 import { useSelector } from 'react-redux'
 import { RootState } from '../../app/store'
 import { useSectionSelection } from '../../features/sections/hooks/useSectionSelection'
+import { useEffect } from 'react'
 
 interface SectionButtonProps {
   name: string,
   image: string,
-  index: number
+  index: number,
+  position: number
 }
 
-export const SectionButton = ({ name, image, index }: SectionButtonProps) => {
+export const SectionButton = ({ name, image, index, position }: SectionButtonProps) => {
   const webSettings = useSelector((state: RootState) => state.webSettings)
   const { handleSectionSelect, selectedSectionId } = useSectionSelection()
 
-  function handleClick(id: number) {
-    handleSectionSelect(id)
-  }
+  useEffect(() => {
+    if (position === 0) {
+      handleSectionSelect(index)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+
   return (
     <button
-      className="flex flex-col items-center w-[104px] rounded-full"
-      onClick={() => handleClick(index)}
+      className="flex flex-col items-center w-[104px] h-[190px] rounded-full group"
+      onClick={() => handleSectionSelect(index)}
     >
       <img
         src={image}

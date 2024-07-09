@@ -21,7 +21,7 @@ interface Image {
   image: string;
 }
 
-interface Item {
+export interface Item {
   id: number;
   name: string;
   description: string | null;

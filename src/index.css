@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #EEEEEE;
+}
+
 @layer base {
   :root {
     font-family: 'Roboto', sans-serif;
