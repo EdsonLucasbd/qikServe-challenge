@@ -16,6 +16,7 @@ const webSettingsSlice = createSlice({
   initialState,
   reducers: {
     setWebSettings(state, action: PayloadAction<WebSettings>) {
+      state = action.payload;
       return action.payload;
     },
   },
