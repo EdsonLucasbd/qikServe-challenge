@@ -1,11 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import webSettingsReducer from '../features/webSettings/webSettingsSlice';
 import SectionsReducer from '../features/sections/sectionsSlice'
+import cartItemsReducer from '../features/cart/cartItemsSlice'
+import cartTotalsReducer from '../features/cart/cartTotalsSlice'
 
 const store = configureStore({
   reducer: {
     webSettings: webSettingsReducer,
     sections: SectionsReducer,
+    cartItems: cartItemsReducer,
+    cartTotals: cartTotalsReducer
   },
 });
 
