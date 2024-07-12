@@ -8,8 +8,7 @@ import { Sections } from './components/Section/Sections'
 import { Cart } from './components/Cart'
 
 async function getRestaurantDetails() {
-  const baseUrl = import.meta.env.VITE_API_URL
-  return (await fetch(`${baseUrl}/challenge/venue/9`).then((res) =>
+  return (await fetch(`api/challenge/venue/9`).then((res) =>
     res.json()
   )) as Venue
 }

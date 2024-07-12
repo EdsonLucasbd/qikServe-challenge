@@ -7,7 +7,7 @@ import { useSectionSelection } from '../../features/sections/hooks/useSectionSel
 import { Item } from '../Item'
 
 async function getSections() {
-  return (await fetch(`${import.meta.env.VITE_API_URL}/challenge/menu`).then((res) =>
+  return (await fetch(`api/challenge/menu`).then((res) =>
     res.json()
   )) as VenueSections
 }
