@@ -13,7 +13,7 @@ export default defineConfig(({
   if (mode === 'development') {
     config.server = {
       proxy: {
-        '/api': {
+        '/proxy': {
           target: 'http://localhost:5173',
           changeOrigin: true,
           rewrite: (path: string) => path.replace(/^\/api/, '')
@@ -23,7 +23,7 @@ export default defineConfig(({
   } else {
     config.server = {
       proxy: {
-        '/api': {
+        '/proxy': {
           target: 'https://cdn-dev.preoday.com',
           changeOrigin: true,
           rewrite: (path: string) => path.replace(/^\/api/, ''),
