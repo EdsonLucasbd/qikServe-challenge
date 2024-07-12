@@ -21,11 +21,16 @@ export const SectionButton = ({ name, image, index, position }: SectionButtonPro
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  function handleSelection(index: number) {
+    const destinationSection = document.getElementById(`${index}`)
+    handleSectionSelect(index)
+    destinationSection?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <button
       className="flex flex-col items-center w-[104px] h-[190px] rounded-full group"
-      onClick={() => handleSectionSelect(index)}
+      onClick={() => handleSelection(index)}
     >
       <img
         src={image}

@@ -24,7 +24,7 @@ export default defineConfig(({
     config.server = {
       proxy: {
         '/api': {
-          target: 'https://seu-proxy-em-producao.com',
+          target: 'https://cdn-dev.preoday.com',
           changeOrigin: true,
           rewrite: (path: string) => path.replace(/^\/api/, ''),
         },

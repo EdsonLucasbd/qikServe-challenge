@@ -5,9 +5,11 @@ import { SearchInput } from './components/SearchInput'
 import { useDispatch } from 'react-redux'
 import { setWebSettings } from './features/webSettings/webSettingsSlice'
 import { Sections } from './components/Section/Sections'
+import { Cart } from './components/Cart'
 
 async function getRestaurantDetails() {
-  return (await fetch(`${import.meta.env.VITE_API_URL}/challenge/venue/9`).then((res) =>
+  const baseUrl = import.meta.env.VITE_API_URL
+  return (await fetch(`${baseUrl}/challenge/venue/9`).then((res) =>
     res.json()
   )) as Venue
 }
@@ -39,8 +41,9 @@ function App() {
       <div className='w-full h-[158px] lg:h-[150px] bg-center bg-cover bg-no-repeat' style={{ backgroundImage: `url(${data?.webSettings.bannerImage})` }}></div>
       <div className='bg-white lg:bg-[#EEEEEE] lg:pt-[1px] lg:mt-[5px] lg:px-[208px]'>
         <SearchInput />
-        <div className="flex w-full px-4 lg:bg-[#F8F9FA] lg:mt-0 lg:px-10 lg:pb-[244px] lg:mb-[35px]">
+        <div className="flex w-full px-4 lg:bg-[#F8F9FA] lg:mt-0 lg:px-10 lg:pb-[244px] lg:mb-[35px] lg:gap-6 lg:pt-8">
           <Sections />
+          <Cart />
         </div>
       </div>
     </Layout>
