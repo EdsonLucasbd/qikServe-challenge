@@ -8,7 +8,7 @@ import { Sections } from './components/Section/Sections'
 import { Cart } from './components/Cart'
 
 async function getRestaurantDetails() {
-  return (await fetch(`${import.meta.env.VITE_API_URL}/challenge/venue/9`, { mode: 'no-cors' }).then((res) =>
+  return (await fetch(`${import.meta.env.VITE_API_URL}/challenge/venue/9`).then((res) =>
     res.json()
   )) as Venue
 }

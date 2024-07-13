@@ -1,7 +1,0 @@
-{  
-  "rewrites": [
-       { "source": "/:path(^/api(.*))",
-         "destination": "https://cdn-dev.preoday.com/:path*"
-       } 
- ]
-}
