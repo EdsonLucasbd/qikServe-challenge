@@ -9,7 +9,7 @@ export default defineConfig({
         target: 'https://cdn-dev.preoday.com',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: (path) => path.replace(/([^/]*\/)api([^/]*)/, '$1/$2')
       }
     }
   }
