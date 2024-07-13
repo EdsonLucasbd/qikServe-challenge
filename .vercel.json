@@ -1,6 +1,6 @@
 {  
   "rewrites": [
-       { "source": "/api/:match*",
+       { "source": "/proxy/:match*",
          "destination": "https://cdn-dev.preoday.com/:match*"
        } 
  ]
