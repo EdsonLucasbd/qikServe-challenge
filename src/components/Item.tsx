@@ -13,11 +13,12 @@ interface ItemProps {
   images: Image[] | undefined,
   title: string,
   description: string | null,
-  modifiers: Modifier[] | undefined
-  mainOptionId: number
+  modifiers: Modifier[] | undefined,
+  mainOptionId: number,
+  mainOptionPrice: number
 }
 
-export const Item = ({ children, images, description, title, modifiers, mainOptionId }: ItemProps) => {
+export const Item = ({ children, images, description, title, modifiers, mainOptionId, mainOptionPrice }: ItemProps) => {
   const [quantity, setQuantity] = useState(0)
   const [selectedItem, setSelectedItem] = useState<CartItem | null>(null)
   const [buttonValue, setButtonValue] = useState(0)
@@ -63,7 +64,7 @@ export const Item = ({ children, images, description, title, modifiers, mainOpti
             <DialogTitle className="font-bold text-2xl text-color-dark text-start pt-4 pb-2 px-4">{title}</DialogTitle>
             <DialogDescription className="text-base text-start px-4">{description}</DialogDescription>
           </DialogHeader>
-          {modifiers && modifiers.map(({ id, name, items, minChoices }) => (
+          {modifiers ? modifiers.map(({ id, name, items, minChoices }) => (
             <div className="flex flex-col" key={id}>
               <div className="px-6 py-4 bg-[#F8F9FA]">
                 <p className="text-base font-bold text-color-dark-gary">{name}</p>
@@ -89,7 +90,25 @@ export const Item = ({ children, images, description, title, modifiers, mainOpti
                 ))}
               </RadioGroup>
             </div>
-          ))}
+          )) : (
+            <RadioGroup>
+              <div
+                className="flex items-center justify-between w-full px-6 py-4 last:shadow-sm"
+                onClick={() => handleSelectedItem({ id: mainOptionId, name: title, price: mainOptionPrice, quantity, option: '' })}
+              >
+                <label htmlFor={`${title}`} className="flex flex-col w-full gap-y-1 font-medium text-base text-color-dark">
+                  {title}
+                  <span className="font-normal text-color-dark-gary">R${mainOptionPrice.toFixed(2)}</span>
+                </label>
+                <RadioGroupItem
+                  value={`${mainOptionPrice.toFixed(2)}`}
+                  id={`${title}`}
+                  className="border-[3px] border-color-light-gray"
+                />
+              </div>
+            </RadioGroup>
+          )
+          }
           <DialogFooter className="flex flex-col items-center justify-center lg:flex-col gap-2.5 px-6 h-[149px] bg-[#F8F9FA]">
             <div className="flex items-center justify-center gap-4">
               <button

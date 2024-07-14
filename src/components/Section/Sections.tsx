@@ -53,7 +53,15 @@ export const Sections = () => {
                 <AccordionTrigger onClick={() => handleSectionSelect(id)}>{name}</AccordionTrigger>
                 {
                   items.map(({ id, name, images, description, price, modifiers }) => (
-                    <Item images={images} description={description} title={name} modifiers={modifiers} key={id} mainOptionId={id}>
+                    <Item
+                      images={images}
+                      description={description}
+                      title={name}
+                      modifiers={modifiers}
+                      key={id}
+                      mainOptionId={id}
+                      mainOptionPrice={price}
+                    >
                       <AccordionContent>
                         <ListItem name={name} images={images} description={description} price={price} id={id} />
                       </AccordionContent>

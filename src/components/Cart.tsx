@@ -16,7 +16,7 @@ export const Cart = () => {
           {cart.items.length < 1
             ? <p className="text-base text-color-dark-gary p-6">Seu carrinho está vazio</p>
             :
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-full divide-y divide-[#DADADA]">
               {cart.items.map((item) => (
                 <div className="flex flex-col pt-2" key={item.id}>
                   <div className="flex flex-col px-4">
@@ -89,7 +89,7 @@ export const Cart = () => {
               <DialogHeader className="py-[23px] bg-white">
                 <DialogTitle className="font-medium text-lg text-color-dark pb-5 border-b border-b-[#DADADA]">Basket</DialogTitle>
               </DialogHeader>
-              <div className="flex flex-col w-full h-full divide-y bg-white">
+              <div className="flex flex-col w-full h-full divide-y divide-[#DADADA] bg-white">
                 {cart.items.map((item) => (
                   <div className="flex flex-col pt-2" key={item.id}>
                     <div className="flex flex-col px-4">
